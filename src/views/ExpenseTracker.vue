@@ -82,25 +82,20 @@ const exportDataToCsv = () => {
   // Blob (Binary Large Object) là một loại dữ liệu đặc biệt được sử dụng để lưu trữ dữ liệu nhị phân (binary data), chẳng hạn như hình ảnh, video, âm thanh, v.v.
   const url = URL.createObjectURL(blob);
   // Tạo một URL đại diện cho đối tượng Blob đã tạo, để có thể sử dụng nó cho thuộc tính href của thẻ <a>.
-  // const link = document.createElement('a');
-  // link.href = url;
-  // link.setAttribute('download', 'export_data.csv');
-  // document.body.appendChild(link);
-  // link.click();
-  // document.body.removeChild(link);
+  const link = document.createElement('a');
+  link.href = url;
+  link.setAttribute('download', 'export_data.csv');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 };
 
 const convertToCSV = (data) => {
   const headers = Object.keys(data[0]);
   // headers = ['id', 'text', 'amount']
   const rows = data.map(obj => headers.map(header => obj[header]));
-
   // [[751319480, 'hch4wt9m', 6544], [551732422, 'hch4wt9m', 654]].
-  
   const headerRow = headers.join(',');
-  console.log('====================================');
-  console.log(headerRow);
-  console.log('====================================');
   const csvRows = [headerRow, ...rows.map(row => row.join(','))];
 
   return csvRows.join('\n');
