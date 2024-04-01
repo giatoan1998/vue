@@ -1,7 +1,6 @@
 <script setup>
 import axios from "axios";
-
-import { ref, onMounted } from "vue"
+import { ref, onMounted } from "vue";
 
 const data = ref([]);
 
@@ -10,12 +9,16 @@ const getUsers = async () => {
         const response = await axios.get('http://127.0.0.1:8000/api/data-users');
     
         if (response.data) {
-            data.value = response.data
+            data.value = response.data;
         }
     } catch (error) {
         console.error('There was an error', error);
     }
-}
+};
+
+onMounted(() => {
+    getUsers();
+});
 
 const downloadCsv = () => {
     const csvContent = convertToCsv(data);
@@ -28,7 +31,7 @@ const downloadCsv = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-}
+};
 
 const convertToCsv = () => {
     const usersInfo = data.value;
@@ -38,11 +41,7 @@ const convertToCsv = () => {
     const csvRows = [headerRow, ...rows.map(row => row.join(','))];
 
     return csvRows.join('\n');
-}
-
-onMounted(() => {
-    getUsers();
-})
+};
 </script>
 
 <template>
