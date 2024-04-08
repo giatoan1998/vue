@@ -61,6 +61,7 @@ const select = (option) => {
       <router-link to="/accordion">{{ $t('accordion') }}</router-link>
       <router-link to="/create-tag">{{ $t('createTag') }}</router-link>
       <router-link to="/expense-tracker">{{ $t('expenseTracker') }}</router-link>
+      <router-link to="/drag-drop">Drag Drop</router-link>
     </nav>
     <div class="aselect">
         <div class="selector" @click="toggle()">

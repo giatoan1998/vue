@@ -9,6 +9,7 @@ import GithubUsersSearch from "../components/GithubUsersSearch.vue";
 import FormValidation from "../components/FormValidation.vue";
 import FormValidationNew from "../components/FormValidationNew.vue";
 import DadJokes from "../components/DadJokes.vue";
+import DragDrop from "../components/DragDrop.vue";
 import AmazingCalculator from "../components/AmazingCalculator.vue";
 import AccordionComponent from "../components/AccordionComponent.vue";
 import CreateTag from "../components/tag-create/CreateTags.vue";
@@ -31,6 +32,7 @@ const routes = [
     { path: "/accordion", component: AccordionComponent, name: "AccordionComponent" },
     { path: "/create-tag", component: CreateTag, name: "CreateTag" },
     { path: "/expense-tracker", component: ExpenseTracker, name: "ExpenseTracker" },
+    { path: "/drag-drop", component: DragDrop, name: "DragDrop" },
 ];
 
 const router = createRouter({
