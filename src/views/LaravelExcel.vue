@@ -1,11 +1,22 @@
 <template>
     <div>
-        <button @click="ExportData">Export Data</button>
+        <button @click="ExportData">Export Excel</button>
+        <button @click="ExportPdf" id="js-export-excel">Export Pdf</button>
     </div>
 </template>
 
 <script setup>
 import axios from 'axios';
+import { onMounted } from 'vue';
+
+const ExportPdf = () => {
+    const url = "http://127.0.0.1:8000/api/export-pdf";
+    window.open(url, '_blank');
+};
+
+onMounted(() => {
+    ExportPdf();
+});
 
 const ExportData = async () => {
     try {
@@ -27,7 +38,7 @@ const ExportData = async () => {
     } catch (error) {
         console.error('Error downloading Excel:', error);
     }
-}
+};
 
 </script>
 
