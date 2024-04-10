@@ -15,6 +15,7 @@ import AccordionComponent from "../components/AccordionComponent.vue";
 import CreateTag from "../components/tag-create/CreateTags.vue";
 import ExpenseTracker from "../views/ExpenseTracker.vue";
 import DownloadCsv from "../views/DownloadCsv.vue";
+import LaravelExcel from "../views/LaravelExcel.vue";
 
 const routes = [
     { path: "/csv", component: DownloadCsv, name: "DownloadCsv" },
@@ -33,6 +34,7 @@ const routes = [
     { path: "/create-tag", component: CreateTag, name: "CreateTag" },
     { path: "/expense-tracker", component: ExpenseTracker, name: "ExpenseTracker" },
     { path: "/drag-drop", component: DragDrop, name: "DragDrop" },
+    { path: "/export-excel", component: LaravelExcel, name: "LaravelExcel" },
 ];
 
 const router = createRouter({
